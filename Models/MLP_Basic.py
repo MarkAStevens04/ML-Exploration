@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 def make_model(X_train, t_train):
-    model = MLPRegressor(hidden_layer_sizes=(1), max_iter=1000)
+    model = MLPRegressor(hidden_layer_sizes=(1), max_iter=10000)
     t_train = t_train.ravel()
     model.fit(X=X_train, y=t_train)
 
