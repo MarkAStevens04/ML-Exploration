@@ -71,14 +71,16 @@ def linear_difference(X, size=0.2):
     # return x_diff
 
 def sin_difference(X, size=0.2):
-    min = X.min()
-    max = X.max()
     period = np.linspace(0, math.pi * 2, X.shape[0])
+    np.random.shuffle(period)
     x_diff = np.sin(period) * 10
     print(x_diff)
 
     # return (np.random.random((X.size)) - 0.5) * (max - min) * size + min
     return x_diff, period
+
+def multiply_difference():
+    multipliers = np.random.randint(0, 100)
 
 
 def calc_dist(df):
@@ -91,9 +93,15 @@ if __name__ == "__main__":
     y = make_difference(nDimensions=nDim)
     calc_dist(y)
     print(y)
+
+
     sns.set_style("darkgrid")
     # hue="size", style="type", linewidth=2,
-    sns.scatterplot(data=y, x="x0", y="y", hue="diff", palette="flare")
+    f, ax = plt.subplots(1, 2, figsize=(12, 6))
+    sns.scatterplot(data=y, x="x0", y="y", hue="diff", palette="flare", ax=ax[0])
+
+    diff_caused = y['y'] - y['x0']
+    sns.scatterplot(data=y, x="x1", y=diff_caused, hue="diff", palette="flare", ax=ax[1])
 
     plt.show()
     y.to_csv(f'Data/Storage/difference_{nDim}.csv', index=False)
