@@ -35,7 +35,7 @@ def make_linear(start=0, stop=100, nDimensions=3, precision=1):
 
     return df
 
-def make_difference(start=0, stop=100, nDimensions=3, precision=1):
+def make_difference(start=0, stop=100, nDimensions=3, precision=0.1):
     """
     The underlying relationship here is linear.
     Given some x value, the y value is identical.

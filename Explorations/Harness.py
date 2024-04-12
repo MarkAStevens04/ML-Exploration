@@ -36,7 +36,7 @@ def predict_training(model, X_train):
 if __name__ == "__main__":
     nDim = 1
     dfO = pd.read_csv(f'Data/Storage/difference_{nDim}.csv', header=0)
-    print(dfO)
+    # print(dfO)
 
     df = dfO.to_numpy()
     np.random.shuffle(df)
@@ -58,10 +58,10 @@ if __name__ == "__main__":
 
     sns.set_style("darkgrid")
 
-    # MLP.compare_models(X_train, t_train, X_valid, t_valid)
+    MLP.compare_models(X_train, t_train, X_valid, t_valid)
 
-    X_sample = X_valid[:10]
-    t_sample = t_valid[:10]
+    X_sample = X_valid[:100]
+    t_sample = t_valid[:100]
 
 
     m1 = MLP.make_model(X_train=X_train,t_train=t_train)
@@ -84,11 +84,13 @@ if __name__ == "__main__":
 
     f, ax = plt.subplots(2, 2, figsize=(12, 12))
 
-    print(predMLP)
+    # print(predMLP)
     # diff_caused = t_sample.ravel() - predMLP['X0']
     diff2 = dfO['y'] - dfO['x0']
-    diff_found = t_sample.ravel() - predMLP['X0']
+    diff_found = predMLP['prediction'] - predMLP['X0']
+    # diff_found = 2 * t_sample.ravel() - predMLP['prediction'] - predMLP['X0'] + predMLP['X1']
     # diff_found = t_sample.ravel() - predMLP['prediction'] +
+    print(predMLP)
 
 
     sns.scatterplot(data=dfO, x="x0", y="y", marker="s", hue="diff", palette="ch:r=-.2,d=.3_r", ax=ax[0, 1])
