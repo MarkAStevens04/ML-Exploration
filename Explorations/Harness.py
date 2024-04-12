@@ -34,8 +34,9 @@ def predict_training(model, X_train):
 
 
 if __name__ == "__main__":
-    nDim = 30
+    nDim = 1
     dfO = pd.read_csv(f'Data/Storage/difference_{nDim}.csv', header=0)
+    print(dfO)
 
     df = dfO.to_numpy()
     np.random.shuffle(df)
@@ -83,16 +84,18 @@ if __name__ == "__main__":
 
     f, ax = plt.subplots(1, 2, figsize=(12, 6))
 
-    sns.scatterplot(data=dfO, x="x0", y="y", marker="s", hue="x2", palette="ch:r=-.2,d=.3_r", ax=ax[1])
+    print(predMLP)
+
+    sns.scatterplot(data=dfO, x="x0", y="y", marker="s", hue="diff", palette="ch:r=-.2,d=.3_r", ax=ax[1])
     sns.lineplot(x=[0, 100], y=[0, 100], c='black', ax=ax[1], linewidth=2, label="actual")
     sns.lineplot(data=predMLP, x="prediction", y=t_sample.ravel(), marker="o", c='r', ax=ax[1])
 
-    sns.scatterplot(data=dfO, x="x0", y="y", marker="s", hue="x2", palette="ch:r=-.2,d=.3_r", ax=ax[0])
+    sns.scatterplot(data=dfO, x="x0", y="y", marker="s", hue="diff", palette="ch:r=-.2,d=.3_r", ax=ax[0])
     sns.lineplot(x=[0, 100], y=[0, 100], c='black', ax=ax[0], linewidth=2, label="actual")
     sns.lineplot(data=predLin, x="prediction", y=t_sample.ravel(), marker="o", c='b', ax=ax[0])
 
-    ax[0].set(title="Linear Regression")
-    ax[1].set(title="MLP")
+    ax[0].set(title="Linear Regression", xlabel="prediction", ylabel="target")
+    ax[1].set(title="MLP", xlabel="prediction", ylabel="target")
 
     plt.show()
 
