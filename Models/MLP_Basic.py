@@ -7,9 +7,10 @@ import matplotlib.animation as animation
 
 
 def make_model(X_train, t_train):
-    model = MLPRegressor(hidden_layer_sizes=(15, 15, 15), max_iter=10000, activation='relu')
+    model = MLPRegressor(hidden_layer_sizes=(1), max_iter=10000, activation='relu')
     t_train = t_train.ravel()
     model.fit(X=X_train, y=t_train)
+
 
     return model
 

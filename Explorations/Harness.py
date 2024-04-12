@@ -34,7 +34,7 @@ def predict_training(model, X_train):
 
 
 if __name__ == "__main__":
-    nDim = 1
+    nDim = 10
     dfO = pd.read_csv(f'Data/Storage/difference_{nDim}.csv', header=0)
     # print(dfO)
 
@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
     sns.set_style("darkgrid")
 
-    MLP.compare_models(X_train, t_train, X_valid, t_valid)
+    # MLP.compare_models(X_train, t_train, X_valid, t_valid)
 
     X_sample = X_valid[:100]
     t_sample = t_valid[:100]
@@ -108,6 +108,7 @@ if __name__ == "__main__":
 
     ax[0, 0].set(title="Linear Regression", xlabel="prediction", ylabel="target")
     ax[0, 1].set(title="MLP", xlabel="prediction", ylabel="target")
+    print(m1.coefs_)
 
     plt.show()
 
