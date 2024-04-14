@@ -53,7 +53,17 @@ Are models okay if they have 3/10/100/1000+ classes?
 ### Regression - Number of classes
 Do models behave well when there are 3/10/100/1000+ classes?
 
+### Data - Randomness and sample size
+Does the number of datapoints increase accuracy if there's inherent randomness in the dataset?
 
+Set your data to have some underlying randomness to it. Like pretend the maximum
+possible accuracy iss 90% because of the randomness of your data.
+See if increasing the number of datapoints causes the network to perform better?
+
+Or, add some randomness to like 100 different features, and see if increasing the number
+of datapoints really helps.
+
+Compare having randomness versus no randomness, and lots of datapoints vs few datapoints.
 
 ### General structure - Hyperparam tuning
 Maybe have an additional (optional) function to models that need hyper-parameter
