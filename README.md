@@ -65,6 +65,15 @@ of datapoints really helps.
 
 Compare having randomness versus no randomness, and lots of datapoints vs few datapoints.
 
+
+### Data - Missing segments
+Is it okay if some segments of data are removed?
+
+simulate not having perfect data-collection, and occasionally remove datapoints.
+Try removing them randomly, or removing them at specific points (segments)
+with a specific probability distribution. See how this affects accuracy!
+
+
 ### General structure - Hyperparam tuning
 Maybe have an additional (optional) function to models that need hyper-parameter
 tuning. The function would return models with all combinations of the provided hyper-parameters.
