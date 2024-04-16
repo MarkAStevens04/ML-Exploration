@@ -73,6 +73,12 @@ simulate not having perfect data-collection, and occasionally remove datapoints.
 Try removing them randomly, or removing them at specific points (segments)
 with a specific probability distribution. See how this affects accuracy!
 
+### Data - Outliers
+See what happens when you have a few outliers, or a few pieces of key data removed.
+Simulate imperfect data collection.
+
+How does it affect when the model overfits? W
+
 
 ### General structure - Hyperparam tuning
 Maybe have an additional (optional) function to models that need hyper-parameter
