@@ -14,5 +14,8 @@ class AbstractModel:
     def score(self):
         raise NotImplementedError
 
+    def predict(self, sample):
+        raise NotImplementedError
+
 
 

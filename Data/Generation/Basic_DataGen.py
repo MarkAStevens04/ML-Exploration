@@ -7,6 +7,7 @@ from Data.Generation.Abstract_DataGen import AbstractDataGen
 
 class BasicGen(AbstractDataGen):
     def __init__(self, start=0, stop=1, n_points=100):
+        super().__init__()
         self.data = None
         self.params = None
         self.start = start
@@ -22,14 +23,15 @@ class BasicGen(AbstractDataGen):
         :param precision:
         :return:
         """
-        
-        x = np.arange(self.start, self.stop, self.precision)
-        x2 = np.arange(self.start, self.stop, self.precision)
-        y = np.arange(self.start, self.stop, self.precision)
+        x = np.arange(start=self.start, stop=self.stop, step=1/self.n_points)
+        x2 = np.arange(start=self.start, stop=self.stop, step=1/self.n_points)
+        y = np.arange(start=self.start, stop=self.stop, step=1/self.n_points)
         df = pd.DataFrame()
         df.insert(0, column='x', value=x)
         df.insert(1, column='x2', value=x2)
         df.insert(2, column='y', value=y)
+
+        self.data = df
         return df
 
     def _make_random(self):
