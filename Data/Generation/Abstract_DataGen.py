@@ -15,10 +15,10 @@ class AbstractDataGen:
     def save(self):
         raise NotImplementedError
 
-    def split(self):
-        train = 0.80
-        valid = 0.10
-        test = 0.10
+    def split(self, train=0.8, test=0.1, valid=0.1):
+        train = train
+        valid = test
+        test = valid
 
         test_size = int(len(self.data) * test)
         valid_size = int(len(self.data) * valid)
